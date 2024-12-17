@@ -48,7 +48,7 @@ RUN apk add --no-cache mosquitto-clients libstdc++ curl libusb libxml2 netcat-op
 
 # Install Flask
 RUN apk add --update py3-pip py3-cryptography
-RUN pip install flask requests waitress xmltodict
+RUN pip install --break-system-packages flask requests waitress xmltodict
 
 WORKDIR /wmbusmeters
 COPY --from=build /librtlsdr/build/src/librtlsdr.so.* /usr/lib/
